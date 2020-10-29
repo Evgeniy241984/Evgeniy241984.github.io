@@ -178,7 +178,7 @@ a {
   flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: space-around;
+  justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -186,7 +186,7 @@ a {
 }
 
 .item__link {
-  width: 8px;
+  width: 88px;
   height: 88px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -197,7 +197,7 @@ a {
   flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: center;
+  justify-content: space-around;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
