@@ -34,7 +34,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 Enemy.prototype.collision = function() {
-    return (this.y === this.player.y && this.player.x < this.x + CELL_WIDTH  && this.player.x > this.x - CELL_WIDTH);
+    return (this.y + CELL_HEIGHT > this.player.y && this.player.x < this.x + CELL_WIDTH  && this.player.x > this.x - CELL_WIDTH);
 }
 
 // Draw the enemy on the screen, required method for game
