@@ -78,4 +78,3 @@ function checkWinCondition() {
 cards.forEach(function(card) {
     card.addEventListener('click', rollCard);
 })
-
