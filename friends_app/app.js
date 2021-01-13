@@ -193,23 +193,3 @@ mobileMenuBtn.addEventListener('click', function() {
 function clickMenuBtn(elem) {
     elem.classList.toggle('change');
 }
-
-/* //change header color whhile scrolling page
-let isScrolling = false;
-window.addEventListener("scroll", throttleScroll, false);
-
-function throttleScroll(e) {
-    if (isScrolling == false ) {
-        window.requestAnimationFrame(function() {
-            while (pageYOffset < document.documentElement.clientHeight) {
-                headerStickyBG(e);
-            }
-          isScrolling = false;
-        });
-    }
-    isScrolling = true;
-}
-
-function headerStickyBG() {
-    headerMobile.classList.add('header-scroll');
-} */
