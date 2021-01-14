@@ -8,6 +8,7 @@
   background: white;
   overflow: hidden;
   z-index: 5;
+  padding: 1%;
 }
 
 .menu-btn-container {
@@ -101,7 +102,7 @@
   background-position-y: center;
   background-position-x: 2%;
   background-repeat: no-repeat;
-  margin: 0 auto 30px auto;
+  margin: 3px auto 30px auto;
   font-size: 23px;
 }
 

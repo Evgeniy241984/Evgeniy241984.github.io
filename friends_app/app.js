@@ -203,7 +203,7 @@ function scrollToTop() {
     if (scrollDepth > 100) {
         window.scrollTo(pageXOffset, scrollDepth);
         scrollDepth = scrollDepth - 60;
-        timer = setTimeout(scrollToTop, 15);
+        timer = setTimeout(scrollToTop(), 15);
     } else {
         clearTimeout(timer);
         window.scrollTo(0,0);
