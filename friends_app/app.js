@@ -228,6 +228,6 @@ function scrollToTop() {
 FRIENDS_LIST_WRAP.addEventListener('click', function(event) {
     if (event.target.classList == 'btn error-btn') {
         FRIENDS_LIST_WRAP.innerHTML = '';
-        start();
+        startApp();
     }
 })
