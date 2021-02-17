@@ -8,42 +8,6 @@ let friendsList = [],
     filteredByGenderList,
     scrollDepth;
 
-const colToHex = function (c) {
-
-    let color = (c < 75) ? c + 75 : c
-    let hex = color.toString(16);
-    return hex.length == 1 ? '0' + hex : hex;
-}
-
-const rgbToHex = function (r, g, b) {
-    return '#' + colToHex(r) + colToHex(g) + colToHex(b);
-}
-
-const getRandomColor = function () {
-    return rgbToHex(
-        Math.floor(Math.random() * 255),
-        Math.floor(Math.random() * 255),
-        Math.floor(Math.random() * 255)
-    )
-}
-
-const putRandomColorLetter = function () {
-    let html = '',
-        letters = document.querySelectorAll('h1.header-name > span'),
-        lettersList = Array.prototype.slice.call(letters);
-
-    lettersList.map(function (letter) {
-        let color = getRandomColor();
-        return html +=
-            `<span style= color:${color};>
-                ${letter.innerHTML}</span>
-            `
-    })
-    return html;
-}
-
-HEADER.innerHTML = putRandomColorLetter();
-
 const sendRequest = function (url) {
     return fetch(url)
         .then(handleErrors)
@@ -53,7 +17,7 @@ const sendRequest = function (url) {
 }
 
 function handleErrors(response) {
-    if (response.status > 400) {
+    if (!response.ok) {
         throw Error(response.statusText);
     }
     return response;
@@ -75,15 +39,12 @@ startApp();
 function renderFriendsList(friends) {
     FRIENDS_LIST_WRAP.innerHTML = '';
 
-    friends.forEach(function (friend) {
-        renderFriendsCard(friend);
-    });
+    friends.forEach(renderFriendsCard);
 }
 
 function renderFriendsCard(friend) {
     const friendCard = document.createElement('div');
-    friendCard.innerHTML =
-        `
+    friendCard.innerHTML = ` 
     <div class="cardWrap ${friend.gender === 'male' ? 'purple-gradient' : 'yellow-gradient'}">
         <div class="cardWrap__photo-wrap">
             <img
@@ -199,35 +160,35 @@ SORTING_MENU.addEventListener('click', sortingFriends);
 
 const filterFriends = function (event) {
     let unFilteredList,
-        input = event.target.closest('input');
+        inputValue = event.target.closest('input').value;
+
     if (searchResultList) {
         unFilteredList = searchResultList;
     } else {
         unFilteredList = [...friendsList];
     }
 
-    if (input.value === 'male') {
-        filteredByGenderList = unFilteredList.filter(function (friend) {
-            return friend.gender === input.value;
-        })
-
-    } else if (input.value === 'female') {
-        filteredByGenderList = unFilteredList.filter(function (friend) {
-            return friend.gender === input.value;
-        })
-
-    } else if (input.value === 'all') {
-        filteredByGenderList = friendsList;
+    switch (inputValue) {
+        case 'male':
+        case 'female':
+            filteredByGenderList = filterByGender(inputValue, unFilteredList);
+            break;
+        case 'all':
+            filteredByGenderList = friendsList;
     }
 
     renderFriendsList(filteredByGenderList);
 }
 
+const filterByGender = function (gender, friendsList) {
+    return friendsList.filter((friend) => friend.gender === gender);
+};
+
 const FILTER_MENU = document.querySelector('.filter-menu');
 
 FILTER_MENU.addEventListener('input', filterFriends);
 
-const menuHiding = function (event) {
+const hideMenu = function (event) {
     const menuWrap = document.querySelector('.menu-wrap');
 
     toggleClass(event.target, menuWrap);
@@ -257,4 +218,4 @@ function scrollToTop() {
 
 const MOBILE_MENU_BUTTON = document.querySelector('.button-container');
 
-MOBILE_MENU_BUTTON.addEventListener('click', menuHiding);
+MOBILE_MENU_BUTTON.addEventListener('click', hideMenu);
