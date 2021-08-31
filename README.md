@@ -2,7 +2,7 @@
 
 1. ### Current job HTML\CSS coding
 
-    ![Advertising mailing](https://evgeniy241984.github.io/advertising_mailings/) 
+    [Advertising mailing](https://evgeniy241984.github.io/advertising_mailings/) 
 
 
 2. ### Study projects: 
