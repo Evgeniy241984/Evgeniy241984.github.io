@@ -4,8 +4,11 @@
 
     [Advertising mailing](https://evgeniy241984.github.io/advertising_mailings/) 
 
+2. ### Project study React Redux
 
-2. ### Study projects: 
+    [Github Search App](https://evgeniy241984.github.io/github-search-app-react/)
+
+3. ### Study projects: 
     
     [Movie seat Booking](https://evgeniy241984.github.io/movie-seat-booking/) 
    
