@@ -4,7 +4,7 @@
 
     [Github Search App](https://evgeniy241984.github.io/github-search-app-react/)
 
-2. ###  Study projects: 
+2. ###  KOTTANS WebDev course projects: 
     
     [Movie seat Booking](https://evgeniy241984.github.io/movie-seat-booking/) 
    
